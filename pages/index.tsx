@@ -1,4 +1,5 @@
 import Banner from '@components/banner/banner';
+import Trending from '@components/trending/trending';
 import styled from '@emotion/styled';
 import { getApiConfiguration } from '@store/homeSlice';
 import { AppDispatch } from '@store/store';
@@ -52,6 +53,8 @@ const Home: NextPage<IHome> = ({ banner }) => {
   return (
     <Wrap>
       <Banner banner={banner} />
+      <Trending />
+      <div style={{ height: 1000 }}></div>
     </Wrap>
   );
 };

@@ -1,6 +1,35 @@
 import styled from '@emotion/styled';
 import { media } from '@styles/media';
-import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedin } from 'react-icons/fa';
+import { FaFacebookF, FaInstagram } from 'react-icons/fa';
+
+const Footer = () => {
+  return (
+    <Wrap>
+      <ContentWrap>
+        <MenuItemsWrap>
+          <p>© 2023 Young Hoon</p>
+          <MenuItem>Terms Of Use</MenuItem>
+          <MenuItem>Privacy-Policy</MenuItem>
+          <MenuItem>FAQ</MenuItem>
+        </MenuItemsWrap>
+        <InfoTextWrap>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+          nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        </InfoTextWrap>
+        <SocialIconsWrap>
+          <Icon>
+            <FaFacebookF />
+          </Icon>
+          <Icon>
+            <FaInstagram />
+          </Icon>
+        </SocialIconsWrap>
+      </ContentWrap>
+    </Wrap>
+  );
+};
+
+export default Footer;
 
 const Wrap = styled.footer`
   background-color: var(--black3);
@@ -82,32 +111,3 @@ const Icon = styled.span`
     color: var(--pink);
   }
 `;
-
-const Footer = () => {
-  return (
-    <Wrap>
-      <ContentWrap>
-        <MenuItemsWrap>
-          <p>© 2023 Young Hoon</p>
-          <MenuItem>Terms Of Use</MenuItem>
-          <MenuItem>Privacy-Policy</MenuItem>
-          <MenuItem>FAQ</MenuItem>
-        </MenuItemsWrap>
-        <InfoTextWrap>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-          nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-        </InfoTextWrap>
-        <SocialIconsWrap>
-          <Icon>
-            <FaFacebookF />
-          </Icon>
-          <Icon>
-            <FaInstagram />
-          </Icon>
-        </SocialIconsWrap>
-      </ContentWrap>
-    </Wrap>
-  );
-};
-
-export default Footer;

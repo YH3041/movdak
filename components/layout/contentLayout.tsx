@@ -5,7 +5,7 @@ interface IContentLayout {
 }
 
 const ContentLayout: React.FC<IContentLayout> = ({ children }) => {
-  return <Wrap>{children}</Wrap>;
+  return <Wrap className="contentWrap">{children}</Wrap>;
 };
 
 export default ContentLayout;
