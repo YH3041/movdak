@@ -13,7 +13,8 @@ if (process.env.NODE_ENV == 'production') {
 
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true
+  swcMinify: true,
+  images: { domains: ['image.tmdb.org'] }
 };
 
 module.exports = nextConfig;
