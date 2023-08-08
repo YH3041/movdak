@@ -112,9 +112,9 @@ const SearchInputWrap = styled.div`
     padding: 0 15px;
     font-size: 14px;
     ${media('md')} {
-      width: calc(100% - 150px);
+      width: 100%;
       height: 60px;
-      font-size: 20px;
+      font-size: 18px;
       padding: 0 30px;
     }
   }
