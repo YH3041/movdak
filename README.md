@@ -10,5 +10,6 @@ Website link: https://movdak.kr/
 - Redux
 - Redux Tookit
 - Emotion
-- Next-auth
+- React-Query
+- Storybook
 - Vercel
