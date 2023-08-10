@@ -4,9 +4,7 @@ import styled from '@emotion/styled';
 import useFetch from 'hooks/useFetch';
 
 const Trending = () => {
-  const { data, loading } = useFetch('/trending/movie/day');
-
-  console.log(data);
+  const { data, loading } = useFetch('/trending/movie/day?language=ko');
 
   return (
     <CarouselSection>
