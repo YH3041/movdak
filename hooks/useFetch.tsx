@@ -10,7 +10,6 @@ const useFetch = (url: string) => {
     setLoading(true);
     setData(null);
     setError('');
-
     fetchDataFromApi(url)
       .then((res) => {
         setLoading(false);
@@ -20,6 +19,11 @@ const useFetch = (url: string) => {
         setLoading(false);
         setError(err);
       });
+    return () => {
+      setLoading(true);
+      setData(null);
+      setError('');
+    };
   }, [url]);
 
   return { data, loading, error };
