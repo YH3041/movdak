@@ -1,6 +1,5 @@
 import Style from './trending.module.scss';
 import Carousel from '@components/carousel/carousel';
-import ContentLayout from '@components/layout/contentLayout';
 import SwitchTabs from '@components/tabs/switchTabs';
 import useFetch from 'hooks/useFetch';
 import { useState } from 'react';
@@ -15,11 +14,11 @@ const Trending = () => {
 
   return (
     <section className={Style.wrap}>
-      <ContentLayout>
+      <div className={Style.contentWrap}>
         <h2 className={Style.title}>Trending</h2>
         <SwitchTabs tabs={['Day', 'Week']} onChange={tabHandler} />
-      </ContentLayout>
-      <Carousel data={data?.results} loading={loading} />
+      </div>
+      {!loading && <Carousel data={data?.results} loading={loading} />}
     </section>
   );
 };
