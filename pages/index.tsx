@@ -1,5 +1,7 @@
 import Banner from '@components/banner/banner';
+import SEO from '@components/seo/seo';
 import Trending from '@components/trending/trending';
+import { IMG_LOGO } from '@constants/images/images.constants';
 import styled from '@emotion/styled';
 import { getApiConfiguration } from '@store/homeSlice';
 import { AppDispatch } from '@store/store';
@@ -20,12 +22,7 @@ export const getServerSideProps: GetServerSideProps = async (context: GetServerS
 
   return {
     props: {
-      banner,
-      seoInfo: {
-        title: 'MovDak | 무비닥',
-        description: '',
-        url: context.resolvedUrl
-      }
+      banner
     }
   };
 };
@@ -52,6 +49,7 @@ const Home: NextPage<IHome> = ({ banner }) => {
 
   return (
     <Wrap>
+      <SEO title="영화 드라마 평점, 정보를 확인하세요" content="무비닥에서 보고 싶은 영화와 드라마에 대한 평점 및 정보를 확인하실 수 있습니다." url="https://movdak.kr/" ogImage={IMG_LOGO} />
       <Banner banner={banner} />
       <Trending />
       <div style={{ height: 1000 }}></div>
