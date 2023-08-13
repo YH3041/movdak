@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 const useFetch = (url: string) => {
   const [data, setData] = useState<any>(null);
-  const [loading, setLoading] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>('');
 
   useEffect(() => {
@@ -12,18 +12,14 @@ const useFetch = (url: string) => {
     setError('');
     fetchDataFromApi(url)
       .then((res) => {
-        setLoading(false);
         setData(res);
       })
       .catch((err) => {
-        setLoading(false);
         setError(err);
+      })
+      .finally(() => {
+        setLoading(false);
       });
-    // return () => {
-    //   setLoading(true);
-    //   setData(null);
-    //   setError('');
-    // };
   }, [url]);
 
   return { data, loading, error };

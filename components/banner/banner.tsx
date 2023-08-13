@@ -128,6 +128,7 @@ const SearchInputWrap = styled.div`
     border: 0;
     border-radius: 0 30px 30px 0;
     font-size: 16px;
+    font-weight: 600;
     cursor: pointer;
     ${media('md')} {
       width: 150px;
