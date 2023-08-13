@@ -14,7 +14,10 @@ if (process.env.NODE_ENV == 'production') {
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  images: { domains: ['image.tmdb.org'] }
+  images: { domains: ['image.tmdb.org'] },
+  sassOptions: {
+    prependData: `@import "styles/mixins.scss";`
+  }
 };
 
 module.exports = nextConfig;

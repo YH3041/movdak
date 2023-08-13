@@ -1,21 +1,11 @@
-import styled from '@emotion/styled';
+import Style from './contentLayout.module.scss';
 
 interface IContentLayout {
   children: React.ReactNode;
 }
 
 const ContentLayout: React.FC<IContentLayout> = ({ children }) => {
-  return <Wrap className="contentWrap">{children}</Wrap>;
+  return <div className={Style.contentWrap}>{children}</div>;
 };
 
 export default ContentLayout;
-
-const Wrap = styled.div`
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`;

@@ -1,34 +1,26 @@
+import Style from './trending.module.scss';
 import Carousel from '@components/carousel/carousel';
-import ContentLayout from '@components/layout/contentLayout';
-import styled from '@emotion/styled';
+import SwitchTabs from '@components/tabs/switchTabs';
 import useFetch from 'hooks/useFetch';
+import { useState } from 'react';
 
 const Trending = () => {
-  const { data, loading } = useFetch('/trending/movie/day?language=ko');
+  const [type, setType] = useState<string>('day');
+  const { data, loading } = useFetch(`/trending/all/${type}?language=ko`);
+
+  const tabHandler = (tab: string, idx: number) => {
+    setType(tab.toLocaleLowerCase());
+  };
 
   return (
-    <CarouselSection>
-      <ContentLayout>
-        <CarouselTitle>Trending</CarouselTitle>
-      </ContentLayout>
-      <Carousel data={data?.results} loading={loading} />
-    </CarouselSection>
+    <section className={Style.wrap}>
+      <div className={Style.contentWrap}>
+        <h2 className={Style.title}>Trending</h2>
+        <SwitchTabs tabs={['Day', 'Week']} onChange={tabHandler} />
+      </div>
+      {!loading && <Carousel data={data?.results} loading={loading} />}
+    </section>
   );
 };
 
 export default Trending;
-
-const CarouselSection = styled.section`
-  position: relative;
-  margin-bottom: 70px;
-  & > .contentWrap {
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-`;
-
-const CarouselTitle = styled.h3`
-  font-size: 24px;
-  color: white;
-  font-weight: normal;
-`;
