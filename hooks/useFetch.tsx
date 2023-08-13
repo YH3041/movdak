@@ -19,11 +19,11 @@ const useFetch = (url: string) => {
         setLoading(false);
         setError(err);
       });
-    return () => {
-      setLoading(true);
-      setData(null);
-      setError('');
-    };
+    // return () => {
+    //   setLoading(true);
+    //   setData(null);
+    //   setError('');
+    // };
   }, [url]);
 
   return { data, loading, error };
