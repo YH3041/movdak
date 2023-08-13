@@ -1,7 +1,5 @@
 import Style from './carousel.module.scss';
 import { IMG_NO_POSTER } from '@constants/images/images.constants';
-import styled from '@emotion/styled';
-import { media } from '@styles/media';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useRef } from 'react';
@@ -9,27 +7,7 @@ import { BsFillArrowLeftCircleFill, BsFillArrowRightCircleFill } from 'react-ico
 import { useSelector } from 'react-redux';
 import dayjs from 'dayjs';
 import CircleRating from '@components/circleRating/circleRating';
-
-interface ICarousel {
-  data: {
-    adult: boolean;
-    backdrop_path: string;
-    genre_ids: number[];
-    id: number;
-    media_type: string;
-    original_language: string;
-    original_title: string;
-    overview: string;
-    popularity: number;
-    poster_path: string;
-    release_date: string;
-    title: string;
-    video: boolean;
-    vote_average: number;
-    vote_count: number;
-  }[];
-  loading: boolean;
-}
+import { ICarousel } from '@constants/types/data.constants';
 
 const Carousel: React.FC<ICarousel> = ({ data, loading }) => {
   //? next
@@ -71,11 +49,11 @@ const Carousel: React.FC<ICarousel> = ({ data, loading }) => {
               return (
                 <article key={item.id} className={Style.carouselItem}>
                   <div className={Style.posterWrap}>
-                    <Image src={posterUrl} fill alt={item.title} />
+                    <Image src={posterUrl} fill alt={item.title ?? item.name} />
                     <CircleRating rating={item.vote_average.toFixed(1)} />
                   </div>
                   <div className={Style.infoWrap}>
-                    <h4>{item.title}</h4>
+                    <h4>{item.title ?? item.name}</h4>
                     <span>{dayjs(item.release_date).format('MMM D, YYYY')}</span>
                   </div>
                 </article>
