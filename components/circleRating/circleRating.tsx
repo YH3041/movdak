@@ -8,7 +8,6 @@ interface ICircleRating {
 }
 
 const CircleRating: React.FC<ICircleRating> = ({ rating }) => {
-  console.log(rating);
   return (
     <div className={Style.circleRating}>
       <CircularProgressbar

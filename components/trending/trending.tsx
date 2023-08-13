@@ -1,7 +1,7 @@
+import Style from './trending.module.scss';
 import Carousel from '@components/carousel/carousel';
 import ContentLayout from '@components/layout/contentLayout';
 import SwitchTabs from '@components/tabs/switchTabs';
-import styled from '@emotion/styled';
 import useFetch from 'hooks/useFetch';
 import { useState } from 'react';
 
@@ -14,29 +14,14 @@ const Trending = () => {
   };
 
   return (
-    <CarouselSection>
+    <section className={Style.wrap}>
       <ContentLayout>
-        <CarouselTitle>Trending</CarouselTitle>
+        <h2 className={Style.title}>Trending</h2>
         <SwitchTabs tabs={['Day', 'Week']} onChange={tabHandler} />
       </ContentLayout>
       <Carousel data={data?.results} loading={loading} />
-    </CarouselSection>
+    </section>
   );
 };
 
 export default Trending;
-
-const CarouselSection = styled.section`
-  position: relative;
-  margin-bottom: 70px;
-  & > .contentWrap {
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-`;
-
-const CarouselTitle = styled.h3`
-  font-size: 24px;
-  color: white;
-  font-weight: normal;
-`;
